@@ -11,8 +11,11 @@
             <a routerLinkActive="active" routerLink="/book">Books</a>
         </div>
     </div>
+    <div class="d-flex justify-content-end">
+        <a *ngIf="authService.IsAuthenticated()" (click)="logout()">Logout</a>
+    </div>
 </nav>
 
-<div class="container-fluid">    
+<div class="container-fluid">
     <router-outlet></router-outlet>
 </div>

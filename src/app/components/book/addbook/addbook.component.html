@@ -4,8 +4,6 @@
             <label for="bookname">Book Name </label>
             <input type="text" id="bookname" name="bookname" formControlName="name" placeholder="Book Name">
         </div>
-        {{bookform.controls.name.errors?.required && (bookform.controls.name.dirty
-        ||bookform.controls.name.touched)}}
         <div [hidden]="!(bookform.controls.name.errors?.required && (bookform.controls.name.dirty
         || bookform.controls.name.touched))" class="text-danger">
             Name is required
