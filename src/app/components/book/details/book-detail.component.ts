@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { BookDetails } from '../../models/bookdetails'
+import { BookDetails } from '../../../models/bookdetails'
 
 @Component({
     selector: 'app-book-detail',

@@ -1,0 +1,19 @@
+<form [formGroup]="bookform" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="bookname">Book Name </label>
+            <input type="text" id="bookname" name="bookname" formControlName="name" placeholder="Book Name">
+        </div>
+        {{bookform.controls.name.errors?.required && (bookform.controls.name.dirty
+        ||bookform.controls.name.touched)}}
+        <div [hidden]="!(bookform.controls.name.errors?.required && (bookform.controls.name.dirty
+        || bookform.controls.name.touched))" class="text-danger">
+            Name is required
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary" [disabled]="bookform.invalid">Submit</button>
+        </div>
+    </div>
+</form>

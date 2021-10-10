@@ -1,1 +1,18 @@
-<app-books-list></app-books-list>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/home">Books Store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}">Home</a>
+            <a routerLinkActive="active" routerLink="/book">Books</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">    
+    <router-outlet></router-outlet>
+</div>

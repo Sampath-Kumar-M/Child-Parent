@@ -1,0 +1,8 @@
+<h1>Load the books list</h1>
+
+<div class="row">
+    <ng-container *ngFor="let book of books">
+        <app-book-detail class="col-sm-4" [bookdetails]="book" (deletebook)="deletebook($event)">
+        </app-book-detail>
+    </ng-container>
+</div>
