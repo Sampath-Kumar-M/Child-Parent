@@ -11,7 +11,6 @@ export class AuthService {
 
   login(){
     sessionStorage.setItem('isLoggedIn', 'true');
-    alert(this.requestedUrl);
     if(this.requestedUrl != ''){
       this.route.navigate([this.requestedUrl]);
     }

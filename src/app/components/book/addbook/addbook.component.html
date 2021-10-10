@@ -1,17 +1,45 @@
-<form [formGroup]="bookform" (ngSubmit)="onSubmit()">
-    <div class="row">
-        <div class="col-sm-6">
-            <label for="bookname">Book Name </label>
-            <input type="text" id="bookname" name="bookname" formControlName="name" placeholder="Book Name">
-        </div>
-        <div [hidden]="!(bookform.controls.name.errors?.required && (bookform.controls.name.dirty
+<div class="w-50">
+    <form [formGroup]="bookform" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="bookname">Book Name </label>
+                <input type="text" id="bookname" name="bookname" formControlName="name" placeholder="Book Name">
+            </div>
+            <div [hidden]="!(bookform.controls.name.errors?.required && (bookform.controls.name.dirty
         || bookform.controls.name.touched))" class="text-danger">
-            Name is required
+                Name is required
+            </div>
+            <div [hidden]="!(bookform.controls.name.errors?.minlength && (bookform.controls.name.dirty
+        || bookform.controls.name.touched))" class="text-danger">
+                Minimum {{bookform.controls.name.errors?.minlength?.requiredLength}} characters
+            </div>
+            <div [hidden]="!(bookform.controls.name.errors?.maxlength && (bookform.controls.name.dirty
+        || bookform.controls.name.touched))" class="text-danger">
+                Maximum {{bookform.controls.name.errors?.maxlength?.requiredLength}} characters
+            </div>
+
+            <div class="col-sm-12">
+                <label for="price">Price</label>
+                <input type="text" id="price" name="price" formControlName="price" placeholder="Price(200-500)">
+            </div>
+            <div [hidden]="!(bookform.controls.price.errors?.required && (bookform.controls.price.dirty
+        || bookform.controls.price.touched))" class="text-danger">
+                Price is required
+            </div>
+            <div [hidden]="!(bookform.controls.price.errors?.minprice && (bookform.controls.price.dirty
+        || bookform.controls.price.touched))" class="text-danger">
+                Minimum price {{bookform.controls.price.errors?.minprice?.reqpriceval}}
+            </div>
+            <div [hidden]="!(bookform.controls.price.errors?.maxprice && (bookform.controls.price.dirty
+        || bookform.controls.price.touched))" class="text-danger">
+                Maximum price {{bookform.controls.price.errors?.maxprice?.reqpriceval}}
+            </div>
+
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-sm-12">
-            <button type="submit" class="btn btn-primary" [disabled]="bookform.invalid">Submit</button>
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary" [disabled]="bookform.invalid">Submit</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>

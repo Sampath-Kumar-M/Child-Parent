@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/service/book.service';
+import { PriceValidator } from 'src/app/validators/price.validator';
 
 @Component({
   selector: 'app-addbook',
@@ -21,7 +22,8 @@ export class AddbookComponent implements OnInit {
 
   InitializeForm() {
     this.bookform = this.fb.group({
-      name: new FormControl(null, [Validators.required])
+      name: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
+      price: new FormControl(null, [Validators.required, PriceValidator(200,500)])
     })
   }
 

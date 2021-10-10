@@ -6,10 +6,16 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
                     placeholder="Enter email">
             </div>
+            <div class="field-message text-danger" *ngIf="email?.errors?.email">
+                Enter valid email
+            </div>
             <div class="form-group col-sm-12">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" formControlName="passowrd"
+                <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"
                     placeholder="Password">
+            </div>
+            <div class="field-message text-danger" *ngIf="password?.errors?.passwordStrength">
+                Your password must have lower case, upper case and numeric characters.
             </div>
         </div>
         <div class="mt-3">

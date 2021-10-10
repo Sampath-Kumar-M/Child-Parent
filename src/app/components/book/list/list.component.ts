@@ -15,9 +15,9 @@ export class ListComponent implements OnInit {
         this.books = this.bservice.getlist();
     }
 
-    deletebook(data: any) {
+    deletebook(bookId: any) {
         if (confirm("Are u sure to delete the book, Action cannot be undone?")) {
-            this.bservice.deletebook(data);
+            this.bservice.deletebook(bookId);
         }
     }
 
